@@ -1,71 +1,31 @@
 ```jsp
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Từ điển Anh - Việt</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            margin-top: 100px;
-            background-color: #f8fafc;
-        }
-
-        .dictionary-container {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 350px;
-        }
-
-        input {
-            padding: 12px;
-            margin: 15px 0;
-            width: 90%;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        button {
-            background-color: #1b2a7a;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 90%;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #121c54;
-        }
-    </style>
+    <title>Product Discount Calculator</title>
 </head>
-
 <body>
-    <div class="dictionary-container">
-        <h2 style="color: #1b2a7a;">Từ điển Anh - Việt</h2>
+    <h1>Product Discount Calculator</h1>
 
-        <form action="${pageContext.request.contextPath}/translate" method="POST">
-            <input type="text"
-                   name="word"
-                   placeholder="Nhập từ tiếng Anh..."
-                   required
-                   autofocus>
+    <form action="${pageContext.request.contextPath}/display-discount" method="POST">
+        <label for="description">Product Description:</label>
+        <input type="text" id="description" name="description" required>
+        <br><br>
 
-            <button type="submit">Tìm kiếm</button>
-        </form>
-    </div>
+        <label for="price">List Price:</label>
+        <input type="number" id="price" name="price"
+               min="0" step="any" required>
+        <br><br>
+
+        <label for="discountPercent">Discount Percent:</label>
+        <input type="number" id="discountPercent" name="discountPercent"
+               min="0" max="100" step="any" required>
+        <br><br>
+
+        <button type="submit">Calculate Discount</button>
+    </form>
 </body>
 </html>
 ```
